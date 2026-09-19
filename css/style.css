@@ -156,7 +156,63 @@ button {
     transition: width 0.3s ease;
 }
 
+/* section header */
+.hero-content {
+    margin-top: 20px;
+    padding: 100px 730px 100px 100px;
+    border-radius: 40px;
+    background: url(../images/bg-coffee.jpg) center center / cover no-repeat;
+}
 
+.hero-title {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 105%;
+    color: var(--text-inverse);
+}
+
+.hero-title > span {
+    font-style: italic;
+    color: var(--text-accent);
+}
+
+p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.hero-text {
+    margin-top: 40px;
+    color: var(--text-inverse);
+}
+
+.button {
+    border-radius: 100px;
+    width: 200px;
+    height: 64px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.hero-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 20px 64px;
+    background: var(--text-inverse);
+}
+
+.hero-button svg {
+    width: 0;
+    transition: width 0.3s ease;
+}
 
 /* disable hover for mobiles */
 @media (hover: hover) and (pointer: fine) {
@@ -170,5 +226,13 @@ button {
 
     .theme-dark svg:hover path {
         fill: var(--text-inverse);
+    }
+
+    .hero-button:hover {
+        gap: 10px;
+    }
+
+    .hero-button:hover svg {
+        width: 20px;
     }
 }
