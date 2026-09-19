@@ -61,6 +61,23 @@ section, .footer-content {
 }
 */
 
+h2 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 125%;
+    color: var(--text-primary);
+}
+
+h3 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--text-primary);
+
+}
+
 a {
     text-decoration: none;
     color: var(--dark);
@@ -156,7 +173,7 @@ button {
     transition: width 0.3s ease;
 }
 
-/* section header */
+/* section hero */
 .hero-content {
     margin-top: 20px;
     padding: 100px 730px 100px 100px;
@@ -213,6 +230,88 @@ p {
     width: 0;
     transition: width 0.3s ease;
 }
+
+/* section slider */
+.slider-content {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.slider-title > span {
+    font-style: italic;
+    color: var(--text-accent);
+}
+
+.slider-item {
+    margin-top: 40px;
+    position: relative;
+    /*background: url(../images/coffee-slider-1.png);*/
+}
+
+.slider-item img {
+    width: 480px;
+    height: 480px;
+}
+
+.slider-subtitle {
+    margin-top: 20px;
+}
+
+.slider-item--text {
+    margin-top: 16px;
+    padding: 0 442px;
+}
+
+.slider-item--price {
+    margin-top: 16px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.slider-arrow-left, .slider-arrow-right {
+    border: 1px solid var(--background-container);
+    border-radius: 120px;
+    width: 60px;
+    height: 60px;
+}
+
+.slider-arrow-left {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 30px);
+    margin-left: 4px;
+}
+
+.slider-arrow-right {
+    position: absolute;
+    right: 0;
+    top: calc(50% - 30px);
+    margin-right: 4px;
+}
+
+.slider-line {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 40px auto;
+    width: 144px;
+    height: 4px;
+}
+
+.slider-line span {
+    width: 40px;
+    height: 4px;
+    background: var(--background-container);
+}
+
+.slider-line .slider-line--deactive {
+    background: var(--border-primary);
+}
+
 
 /* disable hover for mobiles */
 @media (hover: hover) and (pointer: fine) {
