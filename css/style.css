@@ -153,6 +153,10 @@ button {
     fill: var(--text-accent);
 }
 
+.theme-switch .theme-dark svg {
+    transition: 0.3s ease;
+}
+
 .menu-line {
     position: absolute;
     left: 50%;
@@ -265,9 +269,10 @@ p {
 
 .slider-arrow-left, .slider-arrow-right {
     border: 1px solid var(--background-container);
-    border-radius: 120px;
+    border-radius: 100px;
     width: 60px;
     height: 60px;
+    transition: 0.3s ease;
 }
 
 .slider-arrow-left {
@@ -424,6 +429,107 @@ p {
     color: var(--text-primary);
 }
 
+/* footer section */
+.footer-content {
+    display: flex;
+    gap: 100px;
+    border-radius: 40px;
+    margin-top: 100px;
+    padding: 100px;
+    width: 1360px;
+    height: 450px;
+    max-width: 1360px;
+    background: var(--background-container);
+}
+
+.footer-info {
+    width: 530px;
+    height: 250px;
+}
+
+.footer-text {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 125%;
+    color: var(--text-inverse);
+}
+
+.footer-text > span {
+    font-style: italic;
+    color: var(--text-accent);
+}
+
+.footer-socials {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    text-align: center;
+    width: 204px;
+    height: 60px;
+}
+
+.footer-socials .button {
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--border-primary);
+    transition: 0.3s ease;
+}
+
+.footer-socials .button svg {
+    margin: 18px;
+}
+
+.footer-contacts {
+    padding-top: 32px;
+}
+
+.footer-contacts p,
+.footer-contacts span {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-inverse);
+}
+
+.footer-contacts .footer-contacts--title {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--text-inverse);
+}
+
+.footer-contacts--address,
+.footer-contacts--tel,
+.footer-contacts--schedule {
+    position: relative;
+    display: flex;
+    gap: 8px;
+}
+
+.footer-contacts--address {
+    margin-top: 40px;
+    width: 182px;
+    height: 28px;
+}
+
+.footer-contacts--tel {
+    margin-top: 16px;
+    width: 175px;
+    height: 28px;
+}
+
+.footer-contacts--schedule {
+    margin-top: 16px;
+}
+
+.footer-contacts .menu-line {
+    background: var(--text-inverse);
+}
+
 /* disable hover for mobiles */
 @media (hover: hover) and (pointer: fine) {
     .nav-link:hover .menu-line {
@@ -446,18 +552,41 @@ p {
         width: 20px;
     }
 
+    .slider-arrow-left:hover,
+    .slider-arrow-right:hover {
+        background: var(--dark-border-primary);
+    }
+
+    .slider-arrow-left:hover svg path,
+    .slider-arrow-right:hover svg path {
+        stroke: var(--text-inverse);
+    }
+
     .about-image > div:hover {
         background-size: cover;
     }
 
     .app-download-buttons a:hover,
     .app-download-buttons a:hover .button-small-text {
-        font-family: var(--font-family);
         color: var(--text-inverse);
         background: var(--background-container);
+        transition: color 0.3s ease;
     }
 
-    .app-download-buttons > a:hover svg path {
+    .app-download-buttons a:hover svg path {
         fill: var(--text-inverse);
+        transition: fill 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+        background: var(--text-inverse);
+    }
+
+    .footer-socials a:hover svg path {
+        stroke: var(--background-container);
+    }
+
+    .footer-contacts a:hover .menu-line {
+        width: 100%;
     }
 }
