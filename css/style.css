@@ -7,7 +7,6 @@
 	--background-overlay: rgba(64, 63, 61, 0.8);
 	--border-primary: #c1b6ad;
 	--border-inverse: #665f55;
-	--text-primary: #403f3d;
 	--dark-text-primary: #e1d4c9;
 	--dark-text-inverse: #e1d4c9;
 	--dark-text-accent: #b0907a;
@@ -17,9 +16,28 @@
 	--dark-border-primary: #665f55;
 	--dark-border-inverse: #c1b6ad;
 	--background-modal: #e1d4c9;
-	--background-modalcontrol: #665f55;
+	--background-modal-control: #665f55;
 	--dark-bg-modal: var(--dark-bg-container);
 	--dark-bg-modal-control: var(--dark-bg-page);
+
+    --logo-bg: #b0907a;
+    --logo-path: #403f3d;
+
+    --theme-switch-default-active-bg: #b0907a;
+    --theme-switch-default-active-path: #e1d4c9;
+    --theme-switch-default-no-active-bg: #e1d4c9;
+    --theme-switch-default-no-active-path: #403f3d;
+    --theme-switch-hover-no-active-bg: #665f55;
+    --theme-switch-hover-no-active-path: #e1d4c9;
+
+    --slider-btn-hover-bg: #665f55;
+    --slider-btn-hover-path: #e1d4c9;
+
+    --app-download-btn-hover-bg: #665f55;
+    --app-download-btn-hover-path: #e1d4c9;
+
+    --socials-btn-hover-bg: #e1d4c9;
+    --socials-btn-hover-path: #403f3d;
 
     --font-family: "Inter", sans-serif;
     --second-family: "Manrope", sans-serif;
@@ -32,6 +50,38 @@
     box-sizing: border-box;
 }
 
+.theme-dark {
+    --text-primary: #e1d4c9;
+	--text-inverse: #403f3d;
+	--text-accent: #b0907a;
+	--background-page: #292826;
+	--background-container: #403f3d;
+	--background-overlay: rgba(41, 40, 38, 0.8);
+	--border-primary: #665f55;
+	--border-inverse: #c1b6ad;
+    --background-modal: #403f3d;
+    --background-modal-control: #292826;
+
+    --logo-bg: #b0907a;
+    --logo-path: #e1d4c9;
+
+    --theme-switch-default-active-bg: #292826;
+    --theme-switch-default-active-path: #e1d4c9;
+    --theme-switch-default-no-active-bg: #b0907a;
+    --theme-switch-default-no-active-path: #e1d4c9;
+    --theme-switch-hover-no-active-bg: #403f3d;
+    --theme-switch-hover-no-active-path: #e1d4c9;
+
+    --slider-btn-hover-bg:#403f3d;
+    --slider-btn-hover-path:#e1d4c9;
+
+    --app-download-btn-hover-bg: #403f3d;
+    --app-download-btn-hover-path: #e1d4c9;
+
+    --socials-btn-hover-bg: #292826;
+    --socials-btn-hover-path: #e1d4c9;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -39,6 +89,7 @@ html {
 body {
     margin: 0 auto;
     padding: 0;
+    transition: 1s ease;
 }
 
 .container {
@@ -50,6 +101,7 @@ body {
     margin: 0 auto;
     padding: 20px 40px 40px;
     background: var(--background-page);
+    overflow: hidden;
 }
 
 h2 {
@@ -76,12 +128,6 @@ a {
 
 ul {
     list-style: none;
-}
-
-@media (max-width: 768px) {
-    .container {
-        overflow: hidden;
-    }
 }
 
 @media (max-width: 380px) {
@@ -162,10 +208,9 @@ button {
 
 .theme-switch svg {
     border-radius: 100px;
-    fill: var(--text-accent);
 }
 
-.theme-switch .theme-dark svg {
+.theme-switch .theme-dark--btn svg {
     transition: 0.3s ease;
 }
 
@@ -251,19 +296,37 @@ button {
 }
 
 /* hero section */
+/*.hero {
+    position: relative;
+}*/
 .hero-content {
     margin-top: 20px;
     padding: 100px 730px 100px 100px;
+    /*position: relative;
+    left: 0;
+    top: 0;*/
     border-radius: 40px;
     background: url(../images/bg-coffee.jpg) center center / cover no-repeat;
+    /*background: transparent;*/
 }
+
+/*.hero-bg--video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 40px;
+    max-width: 1360px;
+    width: 100%;
+    max-height: 644px;
+    object-fit: cover;
+}*/
 
 .hero-title {
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 72px;
     line-height: 105%;
-    color: var(--text-inverse);
+    color: #e1d4c9;
 }
 
 .hero-title > span {
@@ -276,11 +339,12 @@ p {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
+    color: var(--dark-text-primary);
 }
 
 .hero-text {
     margin-top: 40px;
-    color: var(--text-inverse);
+    color: #e1d4c9;
 }
 
 .button {
@@ -301,7 +365,7 @@ p {
     justify-content: center;
     margin-top: 40px;
     padding: 20px 64px;
-    background: var(--text-inverse);
+    background: var(--background-page);
 }
 
 .hero-button svg {
@@ -312,6 +376,11 @@ p {
 @media (max-width: 768px) {
     .hero-content {
         padding: 100px 98px 100px 60px;
+    }
+
+    .hero-bg--video {
+        min-width: 688px;
+        overflow: hidden;
     }
 }
 
@@ -368,7 +437,7 @@ p {
 
 .slider-arrow-left,
 .slider-arrow-right {
-    border: 1px solid var(--background-container);
+    border: 1px solid var(--border-inverse);
     border-radius: 100px;
     width: 60px;
     height: 60px;
@@ -401,7 +470,7 @@ p {
 .slider-line span {
     width: 40px;
     height: 4px;
-    background: var(--background-container);
+    background: var(--border-inverse);
 }
 
 .slider-line .slider-line--deactive {
@@ -651,7 +720,7 @@ p {
     font-weight: 600;
     font-size: 60px;
     line-height: 125%;
-    color: var(--text-inverse);
+    color: #e1d4c9;
 }
 
 .footer-text > span {
@@ -690,7 +759,7 @@ p {
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    color: var(--text-inverse);
+    color: #e1d4c9;
 }
 
 .footer-contacts .footer-contacts--title {
@@ -698,7 +767,7 @@ p {
     font-weight: 600;
     font-size: 24px;
     line-height: 125%;
-    color: var(--text-inverse);
+    color: #e1d4c9;
 }
 
 .footer-contacts--address,
@@ -726,7 +795,7 @@ p {
 }
 
 .footer-contacts .menu-line {
-    background: var(--text-inverse);
+    background: #e1d4c9;
 }
 
 @media (max-width: 768px) {
@@ -765,12 +834,22 @@ p {
         width: 100%;
     }
 
-    .theme-dark svg:hover {
-        background: var(--dark-border-primary);
+    .theme-dark--btn.no-active svg:hover rect {
+        fill: var(--theme-switch-hover-no-active-bg);
     }
 
-    .theme-dark svg:hover path {
-        fill: var(--text-inverse);
+    .theme-dark--btn.no-active svg:hover path {
+        fill: var(--theme-switch-hover-no-active-path);
+    
+    }
+
+    .theme-light--btn.no-active svg:hover rect {
+        fill: var(--theme-switch-hover-no-active-bg);
+    }
+
+    .theme-light--btn.no-active svg:hover path {
+        fill: var(--theme-switch-hover-no-active-path);
+    
     }
 
     .hero-button:hover {
@@ -783,12 +862,13 @@ p {
 
     .slider-arrow-left:hover,
     .slider-arrow-right:hover {
-        background: var(--dark-border-primary);
+        border: none;
+        background: var(--slider-btn-hover-bg);
     }
 
     .slider-arrow-left:hover svg path,
     .slider-arrow-right:hover svg path {
-        stroke: var(--text-inverse);
+        stroke: var(--slider-btn-hover-path);
     }
 
     .about-image > div:hover {
@@ -797,22 +877,23 @@ p {
 
     .app-download-buttons a:hover,
     .app-download-buttons a:hover .button-small-text {
-        color: var(--text-inverse);
-        background: var(--background-container);
+        color: var(--app-download-btn-hover-path);
+        background: var(--app-download-btn-hover-bg);
         transition: color 0.3s ease, background 0.3s ease;
     }
 
     .app-download-buttons a:hover svg path {
-        fill: var(--text-inverse);
+        fill: var(--app-download-btn-hover-path);
         transition: fill 0.3s ease;
     }
 
     .footer-socials a:hover {
-        background: var(--text-inverse);
+        border: none;
+        background: var(--socials-btn-hover-bg);
     }
 
     .footer-socials a:hover svg path {
-        stroke: var(--background-container);
+        stroke: var(--socials-btn-hover-path);
     }
 
     .footer-contacts a:hover .menu-line {
