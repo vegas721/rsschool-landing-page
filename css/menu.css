@@ -303,6 +303,7 @@ button {
     flex-direction: column;
     gap: 40px;
     align-items: center;
+    position: relative;
 }
 
 .menu-title {
@@ -397,10 +398,20 @@ button {
     height: 506px;
 }
 
-.menu-cards--box img {
+.menu-cards--box_img {
     border-radius: 40px;
     width: 310px;
     height: 310px;
+    overflow: hidden;
+}
+
+.menu-cards--box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: center center;
+    transition: transform 0.5s ease;
+    transform: scale(1.1);
 }
 
 .menu-cards--box .menu-cards--box_info {
@@ -435,6 +446,35 @@ button {
     line-height: 125%;
     color: var(--text-primary);
     transition: color 0.5s ease;
+}
+
+.menu-more-cards {
+    display: none;
+    position: absolute;
+    bottom: -100px;
+    left: calc(50% - 30px);
+    border: 1px solid var(--background-container);
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+}
+
+@media (max-width: 768px) {
+    .menu-title {
+        margin: 0;
+    }
+
+    .menu-cards--box.hide {
+        display: none;
+    }
+
+    .menu-cards {
+        justify-content: center;
+    }
+
+    .menu-more-cards {
+        display: block;
+    }
 }
 
 /* footer section */
@@ -539,10 +579,8 @@ button {
 @media (max-width: 768px) {
     .footer-content {
         flex-wrap: wrap;
-    }
-
-    .footer-content {
         padding: 100px 60px;
+        margin-top: 200px;
     }
 
     .footer-contacts {
@@ -590,12 +628,8 @@ button {
     
     }
 
-    .hero-button:hover {
-        gap: 10px;
-    }
-
-    .hero-button:hover svg {
-        width: 20px;
+    .menu-cards--box_img img:hover {
+        transform: scale(1);
     }
 
     .footer-socials a:hover {

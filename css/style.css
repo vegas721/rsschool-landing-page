@@ -89,7 +89,6 @@ html {
 body {
     margin: 0 auto;
     padding: 0;
-    transition: 1s ease;
 }
 
 .container {
@@ -817,9 +816,6 @@ p {
 @media (max-width: 768px) {
     .footer-content {
         flex-wrap: wrap;
-    }
-
-    .footer-content {
         padding: 100px 60px;
     }
 
