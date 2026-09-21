@@ -34,6 +34,8 @@
     --menu-switcher-active-color: #e1d4c9;
     --menu-switcher-active-span-bg: #e1d4c9;
 
+    --menu-more-cards-btn: #403F3D;
+
     --socials-btn-hover-bg: #e1d4c9;
     --socials-btn-hover-path: #403f3d;
 
@@ -73,6 +75,8 @@
     --menu-switcher-active-bg: #403f3d;
     --menu-switcher-active-color: #e1d4c9;
     --menu-switcher-active-span-bg: #292826;
+
+    --menu-more-cards-btn: #e1d4c9;
 
     --socials-btn-hover-bg: #292826;
     --socials-btn-hover-path: #e1d4c9;
@@ -457,6 +461,7 @@ button {
     border-radius: 100px;
     width: 60px;
     height: 60px;
+    padding: 18px;
 }
 
 @media (max-width: 768px) {
@@ -474,6 +479,17 @@ button {
 
     .menu-more-cards {
         display: block;
+    }
+}
+
+@media (max-width: 380px) {
+    .menu-title {
+        font-size: 32px;
+        line-height: 125%
+    }
+
+    .menu-switcher {
+        gap: 8px;
     }
 }
 
