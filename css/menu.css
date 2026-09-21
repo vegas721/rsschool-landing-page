@@ -30,6 +30,10 @@
     --theme-switch-hover-no-active-bg: #665f55;
     --theme-switch-hover-no-active-path: #e1d4c9;
 
+    --menu-switcher-active-bg: #665f55;
+    --menu-switcher-active-color: #e1d4c9;
+    --menu-switcher-active-span-bg: #e1d4c9;
+
     --socials-btn-hover-bg: #e1d4c9;
     --socials-btn-hover-path: #403f3d;
 
@@ -65,6 +69,10 @@
     --theme-switch-default-no-active-path: #e1d4c9;
     --theme-switch-hover-no-active-bg: #403f3d;
     --theme-switch-hover-no-active-path: #e1d4c9;
+
+    --menu-switcher-active-bg: #403f3d;
+    --menu-switcher-active-color: #e1d4c9;
+    --menu-switcher-active-span-bg: #292826;
 
     --socials-btn-hover-bg: #292826;
     --socials-btn-hover-path: #e1d4c9;
@@ -214,6 +222,10 @@ button {
     transition: width 0.3s ease, background 0.5s ease;
 }
 
+.coffee-menu-link .menu-line {
+    width: 100%;
+}
+
 .burger-menu {
     display: none;
     position: relative;
@@ -301,6 +313,7 @@ button {
     line-height: 125%;
     text-align: center;
     color: var(--text-primary);
+    transition: color 0.5s ease;
 }
 
 .menu-title > span {
@@ -328,12 +341,14 @@ button {
     line-height: 150%;
     text-align: center;
     color: var(--text-primary);
+    transition: color 0.5s ease;
 }
 
-.menu-switcher .menu-switcher--coffee {
+.menu-switcher--coffee.active {
     width: 115px;
-    color: var(--text-inverse);
-    background: var(--background-container);
+    color: var(--menu-switcher-active-color);
+    background: var(--menu-switcher-active-bg);
+    transition: color 0.5s ease, background 0.5s ease;
 }
 
 .menu-switcher--tea {
@@ -348,11 +363,13 @@ button {
     border-radius: 100px;
     width: 30px;
     height: 30px;
-    background: var(--text-inverse);
+    background: var(--menu-switcher-active-span-bg);
+    transition: background 0.5s ease;
 }
 
 .menu-switcher .icon-menu--bg {
     background: var(--border-primary);
+    transition: background 0.5s ease;
 }
 
 .menu-switcher button > span img {
@@ -396,6 +413,7 @@ button {
     font-size: 24px;
     line-height: 125%;
     color: var(--text-primary);
+    transition: color 0.5s ease;
 }
 
 .menu-cards--box .menu-cards--box_text {
@@ -406,6 +424,7 @@ button {
     font-size: 16px;
     line-height: 150%;
     color: var(--text-primary);
+    transition: color 0.5s ease;
 }
 
 .menu-cards--box .menu-cards--box_price {
@@ -415,6 +434,7 @@ button {
     font-size: 24px;
     line-height: 125%;
     color: var(--text-primary);
+    transition: color 0.5s ease;
 }
 
 /* footer section */
@@ -548,7 +568,7 @@ button {
 
 /* disable hover for mobiles */
 @media (hover: hover) and (pointer: fine) {
-    .nav-link:hover .menu-line {
+    .no-active .nav-link:hover .menu-line {
         width: 100%;
     }
 
