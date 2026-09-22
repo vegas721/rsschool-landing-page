@@ -464,6 +464,12 @@ button {
     padding: 18px;
 }
 
+@media (max-width: 1120px) {
+    .menu-title {
+        margin: 0 120px;
+    }
+}
+
 @media (max-width: 768px) {
     .menu-title {
         margin: 0;
@@ -479,6 +485,12 @@ button {
 
     .menu-more-cards {
         display: block;
+    }
+}
+
+@media (max-width: 560px) {
+    .menu-title {
+        font-size: 42px;
     }
 }
 
@@ -601,6 +613,12 @@ button {
 
     .footer-contacts {
         padding-top: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .footer-text {
+        font-size: 40px;
     }
 }
 
