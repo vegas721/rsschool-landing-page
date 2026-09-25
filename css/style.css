@@ -289,8 +289,8 @@ button {
         right: -100%;
         top: 80px;
         width: 100%;
-        height: calc(100vh - 100px);
-        padding: 222px 40px 0 40px;
+        height: 100vh;
+        padding: calc(100vh - 680px) 40px 0 40px;
         background: var(--text-inverse);
         visibility: hidden;
         transition: transform 0.5s, visibility 0.5s;
