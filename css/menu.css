@@ -506,9 +506,13 @@ button {
 }
 
 .menu-more-cards {
+    position: relative;
+    margin: ;
+}
+
+.menu-more-btn {
     display: none;
     position: absolute;
-    bottom: -640px;
     left: calc(50% - 30px);
     border: 1px solid var(--background-container);
     border-radius: 100px;
@@ -540,8 +544,12 @@ button {
         transform: none;
     }
 
-    .menu-more-cards {
+    .menu-more-cards .menu-more-btn {
         display: block;
+    }
+
+    .menu-more-btn {
+        
     }
 }
 
@@ -665,7 +673,7 @@ button {
     .footer-content {
         flex-wrap: wrap;
         padding: 100px 60px;
-        margin-top: 200px;
+        margin-top: 160px;
     }
 
     .footer-contacts {
