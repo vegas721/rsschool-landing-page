@@ -35,3 +35,29 @@ themeSwitcherLight.addEventListener('click', () => {
     localStorage.setItem('hoverdark', 'yes');
     }
 )
+
+//burger menu
+const burgerMenu = document.querySelector('.burger-menu');
+const navMenu = document.querySelector('.nav-menu');
+const elementMenu = document.querySelector('.nav-list');
+
+burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('open');
+    navMenu.classList.toggle('open');
+    document.body.classList.toggle('no-scroll');
+})
+
+navMenu.addEventListener('click', (even) => {
+    if (even.target.classList.contains('nav-item') || even.target.classList.contains('nav-link')) {
+        burgerMenu.classList.toggle('open');
+        navMenu.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+    }
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+        burgerMenu.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    }
+});
