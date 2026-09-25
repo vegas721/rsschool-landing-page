@@ -667,6 +667,10 @@ p {
         height: 590px;
     }
 
+    .about-image > div > img {
+        transform: none;
+    }
+
     .about-image--item-2,
     .about-image--item-3 {
         display: none;

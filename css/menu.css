@@ -343,7 +343,6 @@ button {
     .nav-menu.open {
         transform: translateX(-100%);
         visibility: visible;
-        z-index: 2;
     }
 }
 
@@ -361,7 +360,7 @@ button {
     flex-direction: column;
     gap: 40px;
     align-items: center;
-    position: relative;
+    /*position: relative;*/
 }
 
 .menu-title {
@@ -509,7 +508,7 @@ button {
 .menu-more-cards {
     display: none;
     position: absolute;
-    bottom: -100px;
+    bottom: -640px;
     left: calc(50% - 30px);
     border: 1px solid var(--background-container);
     border-radius: 100px;
@@ -535,6 +534,10 @@ button {
 
     .menu-cards {
         justify-content: center;
+    }
+
+    .menu-cards--box img {
+        transform: none;
     }
 
     .menu-more-cards {
