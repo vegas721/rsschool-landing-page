@@ -140,6 +140,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo-link {
@@ -169,6 +170,7 @@ ul {
     line-height: 150%;
     color: var(--text-primary);
     transition: color 0.5s ease;
+    position: relative;
 }
 
 .nav-menu .coffee-menu {
@@ -285,12 +287,12 @@ button {
         align-items: center;
         position: absolute;
         right: -100%;
-        top: 100px;
+        top: 80px;
         width: 100%;
         height: calc(100vh - 100px);
         padding: 222px 40px 0 40px;
         background: var(--text-inverse);
-        visibility: visible;
+        visibility: hidden;
         transition: transform 0.5s, visibility 0.5s;
     }
 
