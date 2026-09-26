@@ -33,6 +33,9 @@
     --slider-btn-hover-bg: #665f55;
     --slider-btn-hover-path: #e1d4c9;
 
+    --slider-line-active: #665f55;
+    --slider-line-no-active: #c1b6ad;
+
     --app-download-btn-hover-bg: #665f55;
     --app-download-btn-hover-path: #e1d4c9;
 
@@ -74,6 +77,9 @@
 
     --slider-btn-hover-bg:#403f3d;
     --slider-btn-hover-path:#e1d4c9;
+
+    --slider-line-active: #c1b6ad;
+    --slider-line-no-active: #665f55;
 
     --app-download-btn-hover-bg: #403f3d;
     --app-download-btn-hover-path: #e1d4c9;
@@ -129,7 +135,7 @@ ul {
     list-style: none;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 550px) {
     .container {
         padding: 20px 16px 40px;
     }
@@ -175,9 +181,6 @@ ul {
 
 .nav-menu .coffee-menu {
     display: none;
-}
-
-.nav-item .coffee-menu {
 }
 
 .header-actions {
@@ -468,6 +471,13 @@ p {
 /* slider section */
 .slider-content {
     margin-top: 100px;
+    max-width: 1360px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-title {
     text-align: center;
 }
 
@@ -477,14 +487,20 @@ p {
     transition: color 0.5s ease;
 }
 
-.slider-item {
+.slider-box {
+    display: flex;
     margin-top: 40px;
-    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    width: 100%;
+    flex-shrink: 0;
+    text-align: center;
 }
 
 .slider-item img {
     width: 480px;
-    height: 480px;
 }
 
 .slider-subtitle {
@@ -520,14 +536,14 @@ p {
 .slider-arrow-left {
     position: absolute;
     left: 0;
-    top: calc(50% - 30px);
+    top: calc(50%);
     margin-left: 4px;
 }
 
 .slider-arrow-right {
     position: absolute;
     right: 0;
-    top: calc(50% - 30px);
+    top: calc(50%);
     margin-right: 4px;
 }
 
@@ -540,21 +556,22 @@ p {
     height: 4px;
 }
 
-.slider-line span {
+.slider-line--item {
     width: 40px;
     height: 4px;
-    background: var(--border-inverse);
-    transition: background 0.5s ease;
-}
-
-.slider-line .slider-line--deactive {
-    background: var(--border-primary);
+    background: var(--slider-line-no-active);
     transition: background 0.5s ease;
 }
 
 @media (max-width: 768px) {
     .slider-item--text {
         padding: 0 100px;
+    }
+
+    .slider-arrow-left,
+    .slider-arrow-right {
+        top: calc(50% + 40px);
+        margin: 0;
     }
 }
 
@@ -564,8 +581,7 @@ p {
     }
 
     .slider-item img {
-        width: 100%;
-        height: 100%;
+        width: 400px;
     }
 
     .slider-arrow-left,

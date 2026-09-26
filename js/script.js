@@ -61,3 +61,36 @@ document.addEventListener('keydown', (event) => {
         navMenu.classList.toggle('open');
     }
 });
+
+//slider
+const sliderBox = document.querySelector('.slider-box');
+const btnLeft = document.querySelector('.slider-arrow-left');
+const btnRight = document.querySelector('.slider-arrow-right');
+const slideCount = document.querySelectorAll('.slider-item').length;
+const slideLine = document.querySelectorAll('.slider-line--item');
+
+let currentSlide = 0;
+
+function getSlide(index) {
+    if (index < 0) {
+        index = slideCount - 1;
+    } else if (index >= slideCount) {
+        index = 0;
+    }
+
+    currentSlide = index;
+
+    sliderBox.style.transform = `translateX(${-index * 100}%)`;
+    slideLine[index].style.backgroundColor = 'var(--slider-line-active)';
+}
+
+btnRight.addEventListener('click', () => {
+    slideLine[currentSlide].style.backgroundColor = '';
+    getSlide(currentSlide + 1);
+})
+btnLeft.addEventListener('click', () => {
+    slideLine[currentSlide].style.backgroundColor = '';
+    getSlide(currentSlide - 1);
+})
+
+getSlide(0); // default for load page

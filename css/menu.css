@@ -546,10 +546,6 @@ button {
     .menu-more-cards .menu-more-btn {
         display: block;
     }
-
-    .menu-more-btn {
-        
-    }
 }
 
 @media (max-width: 560px) {
