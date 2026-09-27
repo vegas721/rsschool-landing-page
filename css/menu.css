@@ -441,10 +441,6 @@ button {
 }
 
 .menu-cards {
-    display: none;
-}
-
-.menu-cards.active {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -456,12 +452,6 @@ button {
     width: 310px;
     height: 506px;
     overflow: hidden;
-}
-
-.menu-cards--box a {
-    display: block;
-    width: 310px;
-    height: 506px;
 }
 
 .menu-cards--box_img {
@@ -482,6 +472,7 @@ button {
 
 .menu-cards--box .menu-cards--box_info {
     padding: 20px;
+    text-align: left;
 }
 
 .menu-cards--box .menu-cards--box_title {
@@ -572,6 +563,39 @@ button {
     .menu-switcher {
         gap: 8px;
     }
+}
+
+/* module window */
+.pop-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--background-overlay);
+}
+
+.pop-up--content {
+    border-radius: 40px;
+    padding: 16px;
+    width: 800px;
+    height: 504px;
+    background: var(--text-inverse);
+}
+
+.pop-up--close {
+    border: 1px solid var(--background-container);
+    border-radius: 100px;
+    padding: 10px 78px;
+    width: 438px;
+    height: 44px;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 /* footer section */

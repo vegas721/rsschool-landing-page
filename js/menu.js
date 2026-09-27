@@ -61,18 +61,79 @@ document.addEventListener('keydown', (event) => {
         burgerMenu.classList.toggle('open');
         navMenu.classList.toggle('open');
     }
-});
+})
 
 
-//switcher category
+//switcher category and create data cards
 const menuCoffee = document.querySelector('.menu-switch.coffee');
 const menuTea = document.querySelector('.menu-switch.tea');
 const menuDessert = document.querySelector('.menu-switch.dessert');
-const menuCardsCoffee = document.querySelector('.menu-cards.coffee');
-const menuCardsTea = document.querySelector('.menu-cards.tea');
-const menuCardsDessert = document.querySelector('.menu-cards.dessert');
-console.log(menuCardsTea);
+const menuSwitch = document.querySelectorAll('.menu-switch');
+const menuCards = document.querySelector('.menu-cards');
+//const menuCardsCoffee = document.querySelector('.menu-cards.coffee');
+//const menuCardsTea = document.querySelector('.menu-cards.tea');
+//const menuCardsDessert = document.querySelector('.menu-cards.dessert');
+let cardCategory = 'tea';
 
+async function loadProducts() {
+  try {
+    const response = await fetch('./products.json');
+    const products = await response.json();
+    console.log(products);
+
+    createCard(products);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function createCard(products) {
+  menuCards.innerHTML = '';
+
+  //if (menuSwitch.classList.contains('active') && menuSwitch.classList.contains(''))
+
+    /*if (menuSwitch.classList.contains('coffee')) {
+        cardCategory = 'coffee';
+    } else if (menuSwitch.classList.contains('tea')) {
+        cardCategory = 'tea';
+    } else if (menuSwitch.classList.contains('dessert')) {
+        cardCategory = 'dessert';
+    }*/
+
+    menuSwitch.forEach(cat => {
+    if (cat.classList.contains('coffee') && cat.classList.contains('active')) {
+        cardCategory = 'coffee';
+    } else if (cat.classList.contains('tea') && cat.classList.contains('active')) {
+        cardCategory = 'tea';
+    } else if (cat.classList.contains('dessert') && cat.classList.contains('active')) {
+        cardCategory = 'dessert';
+    }
+    })
+
+  products.forEach(product => {
+    
+    if (product.category === cardCategory) {
+        const card = document.createElement('button');
+        card.classList.add('menu-cards--box');
+
+        card.innerHTML = `
+            <div class="menu-cards--box_img">
+            <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="menu-cards--box_info">
+            <p class="menu-cards--box_title">${product.name}</p>
+            <p class="menu-cards--box_text">${product.description}</p>
+            <p class="menu-cards--box_price">$${product.price}</p>
+            </div>
+        `;
+
+        menuCards.appendChild(card);
+    }
+    
+  });
+}
+
+loadProducts();
 
 function switchCategory(tab1, tab2, tab3) {
     tab1.classList.remove('no-active');
@@ -85,15 +146,49 @@ function switchCategory(tab1, tab2, tab3) {
 
 menuTea.addEventListener('click', () => {
     switchCategory(menuTea, menuCoffee, menuDessert);
-    switchCategory(menuCardsTea, menuCardsCoffee, menuCardsDessert);
+    loadProducts();
+    //switchCategory(menuCardsTea, menuCardsCoffee, menuCardsDessert);
 })
 
 menuDessert.addEventListener('click', () => {
     switchCategory(menuDessert, menuCoffee, menuTea);
-    switchCategory(menuCardsDessert, menuCardsCoffee, menuCardsTea);
+    loadProducts();
+    //switchCategory(menuCardsDessert, menuCardsCoffee, menuCardsTea);
 })
 
 menuCoffee.addEventListener('click', () => {
     switchCategory(menuCoffee, menuDessert, menuTea);
-    switchCategory(menuCardsCoffee, menuCardsDessert, menuCardsTea);
+    loadProducts();
+    //switchCategory(menuCardsCoffee, menuCardsDessert, menuCardsTea);
+})
+
+
+
+
+
+
+
+//module window
+const popup = document.querySelector('.pop-up');
+const cardBtn = document.querySelector('.menu-cards--box');
+const popupClose = document.querySelector('.pop-up--close');
+
+/*cardBtn.addEventListener('click', () => {
+    popup.classList.toggle('hidden');
+})*/
+
+popup.addEventListener('click', (e) => {
+    if (e.target.classList.contains('pop-up')) {
+        popup.classList.toggle('hidden');
+    }
+})
+
+popupClose.addEventListener('click', () => {
+    popup.classList.toggle('hidden');
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        popup.classList.add('hidden');
+    }
 })
