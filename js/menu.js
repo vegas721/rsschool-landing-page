@@ -64,35 +64,36 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-//slider
-const sliderBox = document.querySelector('.slider-box');
-const btnLeft = document.querySelector('.slider-arrow-left');
-const btnRight = document.querySelector('.slider-arrow-right');
-const slideCount = document.querySelectorAll('.slider-item').length;
-const slideLine = document.querySelectorAll('.slider-line--item');
+//switcher category
+const menuCoffee = document.querySelector('.menu-switch.coffee');
+const menuTea = document.querySelector('.menu-switch.tea');
+const menuDessert = document.querySelector('.menu-switch.dessert');
+const menuCardsCoffee = document.querySelector('.menu-cards.coffee');
+const menuCardsTea = document.querySelector('.menu-cards.tea');
+const menuCardsDessert = document.querySelector('.menu-cards.dessert');
+console.log(menuCardsTea);
 
-let currentSlide = 0;
 
-function getSlide(index) {
-    if (index < 0) {
-        index = slideCount - 1;
-    } else if (index >= slideCount) {
-        index = 0;
-    }
-
-    currentSlide = index;
-
-    sliderBox.style.transform = `translateX(${-index * 100}%)`;
-    slideLine[index].style.backgroundColor = 'var(--slider-line-active)';
+function switchCategory(tab1, tab2, tab3) {
+    tab1.classList.remove('no-active');
+    tab1.classList.add('active');
+    tab2.classList.remove('active');
+    tab2.classList.add('no-active');
+    tab3.classList.remove('active');
+    tab3.classList.add('no-active');
 }
 
-btnRight.addEventListener('click', () => {
-    slideLine[currentSlide].style.backgroundColor = '';
-    getSlide(currentSlide + 1);
-})
-btnLeft.addEventListener('click', () => {
-    slideLine[currentSlide].style.backgroundColor = '';
-    getSlide(currentSlide - 1);
+menuTea.addEventListener('click', () => {
+    switchCategory(menuTea, menuCoffee, menuDessert);
+    switchCategory(menuCardsTea, menuCardsCoffee, menuCardsDessert);
 })
 
-getSlide(0); // default for load page
+menuDessert.addEventListener('click', () => {
+    switchCategory(menuDessert, menuCoffee, menuTea);
+    switchCategory(menuCardsDessert, menuCardsCoffee, menuCardsTea);
+})
+
+menuCoffee.addEventListener('click', () => {
+    switchCategory(menuCoffee, menuDessert, menuTea);
+    switchCategory(menuCardsCoffee, menuCardsDessert, menuCardsTea);
+})

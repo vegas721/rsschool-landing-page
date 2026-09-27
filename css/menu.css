@@ -383,6 +383,8 @@ button {
 .menu-switcher {
     display: flex;
     gap: 16px;
+    justify-content: center;
+    width: 361px;
 }
 
 .menu-switcher button {
@@ -402,31 +404,34 @@ button {
     transition: color 0.5s ease;
 }
 
-.menu-switcher--coffee.active {
+.menu-switch.coffee {
     width: 115px;
+}
+
+.menu-switch.tea {
+    width: 90px;
+}
+
+.menu-switch.dessert {
+    width: 124px;
+}
+
+.menu-switch span {
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    background: var(--border-primary);
+    transition: background 0.5s ease;
+}
+
+.menu-switch.active {
     color: var(--menu-switcher-active-color);
     background: var(--menu-switcher-active-bg);
     transition: color 0.5s ease, background 0.5s ease;
 }
 
-.menu-switcher--tea {
-    width: 90px;
-}
-
-.menu-switcher--dessert {
-    width: 124px;
-}
-
-.menu-switcher button > span {
-    border-radius: 100px;
-    width: 30px;
-    height: 30px;
+.menu-switch.active > span {
     background: var(--menu-switcher-active-span-bg);
-    transition: background 0.5s ease;
-}
-
-.menu-switcher .icon-menu--bg {
-    background: var(--border-primary);
     transition: background 0.5s ease;
 }
 
@@ -436,6 +441,10 @@ button {
 }
 
 .menu-cards {
+    display: none;
+}
+
+.menu-cards.active {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -570,7 +579,7 @@ button {
     display: flex;
     gap: 100px;
     border-radius: 40px;
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 100px;
     background: var(--background-container);
     transition: background 0.5s ease;
@@ -720,6 +729,15 @@ button {
     .theme-light--btn.no-active svg:hover path {
         fill: var(--theme-switch-hover-no-active-path);
     
+    }
+
+    .menu-switch.no-active:hover {
+        color: var(--menu-switcher-active-color);
+        background: var(--menu-switcher-active-bg);
+    }
+
+    .menu-switch.no-active:hover span {
+        background: var(--menu-switcher-active-span-bg);
     }
 
     .menu-cards--box_img img:hover {
