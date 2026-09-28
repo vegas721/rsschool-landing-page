@@ -274,12 +274,6 @@ button {
     transform: translateY(0) rotate(-45deg);
 }
 
-.no-scroll {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-}
-
 @media (max-width:900px) {
     .nav-menu {
         gap: 20px
@@ -351,6 +345,12 @@ button {
     .nav-menu.open {
         transform: translateX(-100%);
         visibility: visible;
+    }
+
+    .no-scroll {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
     }
 }
 

@@ -116,8 +116,6 @@ function createCard(products, productName) {
             </div>
         `;
 
-        //productName.push(product.name);
-
         card.addEventListener('click', () => {
             createModuleCard(products, product.name);
         })
@@ -252,21 +250,15 @@ function createModuleCard(products, productName) {
         //let currentPrice = 0;
 
         function calcPrice(priceItem, priceSize, priceAdd1, priceAdd2, priceAdd3) {
-            let priceTotal = 0;
+            let priceTotal = priceItem + priceSize;
             if (addSugar.classList.contains('active')) {
-                priceTotal = priceItem + priceSize + priceAdd1;
-            } else {
-                priceTotal = priceItem + priceSize;
+                priceTotal += priceAdd1;
             }
             if (addCinnamon.classList.contains('active')) {
-                priceTotal = priceTotal + priceAdd2;
-            } else {
-                priceTotal = priceTotal;
+                priceTotal += priceAdd2;
             }
             if (addSyrup.classList.contains('active')) {
-                priceTotal = priceTotal + priceAdd3;
-            } else {
-                priceTotal = priceTotal;
+                priceTotal += priceAdd3;
             }
             return priceTotal.toFixed(2);
         }
@@ -278,34 +270,85 @@ function createModuleCard(products, productName) {
 
         addCinnamon.addEventListener('click', () => {
             addCinnamon.classList.toggle('active');
-            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceCinnamon, priceSugar, priceSyrup)}`;
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
         })
 
         addSyrup.addEventListener('click', () => {
             addSyrup.classList.toggle('active');
-            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSyrup, priceSugar, priceCinnamon)}`;
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
         })
 
         // size M
         sizeM.addEventListener('click', () => {
             switchSizes(sizeM, sizeS, sizeL);
-            totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price).toFixed(2)}`;
-            /*addSugar.addEventListener('click', () => {
-            addSugar.classList.toggle('active');
+            //totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price).toFixed(2)}`;
             totalPrice.innerHTML = `$${calcPrice(priceProduct, priceM, priceSugar, priceCinnamon, priceSyrup)}`;
-            })*/
+            addSugar.addEventListener('click', () => {
+                addSugar.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceM, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addCinnamon.addEventListener('click', () => {
+                addCinnamon.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceM, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addSyrup.addEventListener('click', () => {
+                addSyrup.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceM, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
         })
         //size L
         sizeL.addEventListener('click', () => {
             switchSizes(sizeL, sizeS, sizeM);
-            totalPrice.innerHTML = `$${(+product.price + +product.sizes.l.price).toFixed(2)}`;
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceL, priceSugar, priceCinnamon, priceSyrup)}`;
+            addSugar.addEventListener('click', () => {
+                addSugar.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceL, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addCinnamon.addEventListener('click', () => {
+                addCinnamon.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceL, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addSyrup.addEventListener('click', () => {
+                addSyrup.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceL, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
         })
         //size S
         sizeS.addEventListener('click', () => {
             switchSizes(sizeS, sizeL, sizeM);
-            totalPrice.innerHTML = `$${product.price}`;
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
+            addSugar.addEventListener('click', () => {
+                addSugar.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addCinnamon.addEventListener('click', () => {
+                addCinnamon.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
+
+            addSyrup.addEventListener('click', () => {
+                addSyrup.classList.toggle('active');
+                totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
+            })
         })
 
+        const popupClose = document.querySelector('.pop-up--close');
+        popupClose.addEventListener('click', () => {
+            popup.classList.toggle('hidden');
+            document.body.classList.toggle('no-scroll');
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                popup.classList.toggle('hidden');
+                document.body.classList.toggle('no-scroll');
+            }
+        })
 
         }
   });
@@ -328,28 +371,10 @@ menuCoffee.addEventListener('click', () => {
     moreBtn.classList.remove('hide');
 })
 
-
-/*cardBtn.forEach(card => {
-    if (card.classList.contains('menu-cards--box')) {
-        loadModuleProducts();
-    }
-    popup.classList.toggle('hidden');
-})*/
-
 popup.addEventListener('click', (e) => {
     if (e.target.classList.contains('pop-up')) {
         popup.classList.toggle('hidden');
         document.body.classList.toggle('no-scroll');
-    }
-})
-
-/*popupClose.addEventListener('click', () => {
-    popup.classList.toggle('hidden');
-})*/
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        popup.classList.add('hidden');
     }
 })
 
