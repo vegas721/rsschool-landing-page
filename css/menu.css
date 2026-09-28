@@ -572,18 +572,159 @@ button {
     align-items: center;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: var(--background-overlay);
 }
 
-.pop-up--content {
+.pop-up--card {
+    display: flex;
+    gap: 20px;
     border-radius: 40px;
     padding: 16px;
     width: 800px;
     height: 504px;
     background: var(--text-inverse);
+}
+
+.pop-up--img {
+    border-radius: 40px;
+    width: 310px;
+    height: 310px;
+    overflow: hidden;
+    /*transform-origin: center center;
+    transition: transform 0.5s ease;
+    transform: scale(1.1);*/
+}
+
+.pop-up--info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 458px;
+    height: 472px;
+}
+
+.pop-up--title {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--text-primary);
+}
+
+.pop-up--text {
+    margin-top: 12px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-primary);
+}
+
+.pop-up--size,
+.pop-up--additives {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pop-up--size p,
+.pop-up--additives p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-primary);
+}
+
+.pop-up--size_ml,
+.pop-up--additives_items,
+.pop-up--note {
+    display: flex;
+    gap: 8px;
+    width: 438px;
+    height: 46px;
+}
+
+.pop-up--size_ml button,
+.pop-up--additives_items button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: 1px solid var(--border-primary);
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+    width: 118px;
+    height: 46px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-primary);
+}
+
+.pop-up--size_ml .active {
+    background: var(--background-container);
+}
+
+.pop-up--size_ml .active div {
+    background: var(--text-inverse);
+}
+
+.pop-up--size_ml .active span {
+    color: var(--text-inverse);
+}
+
+.pop-up--additives_items .sugar,
+.pop-up--additives_items .syrup {
+    width: 109px;
+}
+
+.pop-up--additives_items .cinnamon {
+    width: 141px;
+}
+
+.pop-up--size_ml button div,
+.pop-up--additives_items div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    background: var(--border-primary);
+}
+
+.pop-up--additives_items .active {
+    background: var(--background-container);
+}
+
+.pop-up--additives_items .active div {
+    background: var(--text-inverse);
+}
+
+.pop-up--additives_items .active span {
+    color: var(--text-inverse);
+}
+
+.pop-up--price {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: var(--text-primary);
+}
+
+.pop-up--note {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 140%;
+    color: var(--text-primary);
 }
 
 .pop-up--close {
@@ -592,6 +733,12 @@ button {
     padding: 10px 78px;
     width: 438px;
     height: 44px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: var(--text-primary);
 }
 
 .hidden {
@@ -780,4 +927,8 @@ button {
     .footer-contacts a:hover .menu-line {
         width: 100%;
     }
+
+    /*.pop-up--img img:hover {
+        transform: scale(1);
+    }*/
 }
