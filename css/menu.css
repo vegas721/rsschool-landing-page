@@ -34,6 +34,13 @@
     --menu-switcher-active-color: #e1d4c9;
     --menu-switcher-active-span-bg: #e1d4c9;
 
+    --menu-module-bg: #e1d4c9;
+    --menu-module-color: #403f3d;
+    --menu-module-circle-bg: #c1b6ad;
+    --menu-module-bg-active: #665f55;
+    --menu-module-color-active: #e1d4c9;
+    --menu-module-circle-bg-active: #e1d4c9;
+
     --menu-more-cards-btn: #403F3D;
 
     --socials-btn-hover-bg: #e1d4c9;
@@ -75,6 +82,13 @@
     --menu-switcher-active-bg: #403f3d;
     --menu-switcher-active-color: #e1d4c9;
     --menu-switcher-active-span-bg: #292826;
+
+    --menu-module-bg: #403f3d;
+    --menu-module-color: #e1d4c9;
+    --menu-module-circle-bg: #665f55;
+    --menu-module-bg-active: #292826;
+    --menu-module-color-active: #e1d4c9;
+    --menu-module-circle-bg-active: #403f3d;
 
     --menu-more-cards-btn: #e1d4c9;
 
@@ -531,8 +545,18 @@ button {
         margin: 0 20px;
     }
 
-    .menu-cards--box.hide {
+    .menu-cards--box:nth-child(5),
+    .menu-cards--box:nth-child(6),
+    .menu-cards--box:nth-child(7),
+    .menu-cards--box:nth-child(8) {
         display: none;
+    }
+
+    .menu-cards--box:nth-child(5).show,
+    .menu-cards--box:nth-child(6).show,
+    .menu-cards--box:nth-child(7).show,
+    .menu-cards--box:nth-child(8).show {
+        display: block;
     }
 
     .menu-cards {
@@ -545,6 +569,10 @@ button {
 
     .menu-more-cards .menu-more-btn {
         display: block;
+    }
+
+    .menu-more-cards .menu-more-btn.hide {
+        display: none;
     }
 }
 
@@ -576,6 +604,7 @@ button {
     top: 0;
     left: 0;
     background: var(--background-overlay);
+    transition: background 0.5s ease;
 }
 
 .pop-up--card {
@@ -585,7 +614,8 @@ button {
     padding: 16px;
     width: 800px;
     height: 504px;
-    background: var(--text-inverse);
+    background: var(--menu-module-bg);
+    transition: background 0.5s ease;
 }
 
 .pop-up--img {
@@ -611,7 +641,8 @@ button {
     font-weight: 600;
     font-size: 24px;
     line-height: 125%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .pop-up--text {
@@ -620,7 +651,8 @@ button {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .pop-up--size,
@@ -636,7 +668,8 @@ button {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .pop-up--size_ml,
@@ -653,7 +686,7 @@ button {
     display: flex;
     gap: 8px;
     align-items: center;
-    border: 1px solid var(--border-primary);
+    border: 1px solid var(--menu-module-circle-bg);
     border-radius: 100px;
     padding: 8px 16px 8px 8px;
     width: 118px;
@@ -662,19 +695,24 @@ button {
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    background: var(--menu-module-bg);
+    transition: color 0.5s ease, background 0.5s ease;
 }
 
 .pop-up--size_ml .active {
-    background: var(--background-container);
+    background: var(--menu-module-bg-active);
+    transition: background 0.5s ease;
 }
 
 .pop-up--size_ml .active div {
-    background: var(--text-inverse);
+    background: var(--menu-module-circle-bg-active);
+    transition: background 0.5s ease;
 }
 
 .pop-up--size_ml .active span {
-    color: var(--text-inverse);
+    color: var(--menu-module-color-active);
+    transition: color 0.5s ease;
 }
 
 .pop-up--additives_items .sugar,
@@ -694,19 +732,23 @@ button {
     border-radius: 100px;
     width: 30px;
     height: 30px;
-    background: var(--border-primary);
+    background: var(--menu-module-circle-bg);
+    transition: background 0.5s ease;
 }
 
 .pop-up--additives_items .active {
-    background: var(--background-container);
+    background: var(--menu-module-bg-active);
+    transition: background 0.5s ease;
 }
 
 .pop-up--additives_items .active div {
-    background: var(--text-inverse);
+    background: var(--menu-module-circle-bg-active);
+    transition: background 0.5s ease;
 }
 
 .pop-up--additives_items .active span {
-    color: var(--text-inverse);
+    color: var(--menu-module-color-active);
+    transition: color 0.5s ease;
 }
 
 .pop-up--price {
@@ -716,7 +758,8 @@ button {
     font-weight: 600;
     font-size: 24px;
     line-height: 125%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .pop-up--note {
@@ -724,7 +767,8 @@ button {
     font-weight: 600;
     font-size: 10px;
     line-height: 140%;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .pop-up--close {
@@ -738,11 +782,16 @@ button {
     font-size: 16px;
     line-height: 150%;
     text-align: center;
-    color: var(--text-primary);
+    color: var(--menu-module-color);
+    transition: color 0.5s ease;
 }
 
 .hidden {
     visibility: hidden;
+}
+
+@media (max-width: 768px) {
+
 }
 
 /* footer section */

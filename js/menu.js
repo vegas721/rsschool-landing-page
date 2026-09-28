@@ -234,82 +234,76 @@ function createModuleCard(products, productName) {
             size3.classList.remove('active');
         }
 
-        function addAdditives(item1, item2, item3) {
+        /*function addAdditives(item1, item2, item3) {
             item1.classList.toggle('active');
-            item2.classList.remove('active');
-            item3.classList.remove('active');
+            item2.classList.toggle('active');
+            item3.classList.toggle('active');
+        }*/
+
+
+        const priceProduct = +product.price;
+        const priceS = +product.sizes.s.price;
+        const priceM = +product.sizes.m.price;
+        const priceL = +product.sizes.l.price;
+        const priceSugar = +product.additives[0].price;
+        const priceCinnamon = +product.additives[1].price;
+        const priceSyrup = +product.additives[2].price;
+        //let priceTotal = 0;
+        //let currentPrice = 0;
+
+        function calcPrice(priceItem, priceSize, priceAdd1, priceAdd2, priceAdd3) {
+            let priceTotal = 0;
+            if (addSugar.classList.contains('active')) {
+                priceTotal = priceItem + priceSize + priceAdd1;
+            } else {
+                priceTotal = priceItem + priceSize;
+            }
+            if (addCinnamon.classList.contains('active')) {
+                priceTotal = priceTotal + priceAdd2;
+            } else {
+                priceTotal = priceTotal;
+            }
+            if (addSyrup.classList.contains('active')) {
+                priceTotal = priceTotal + priceAdd3;
+            } else {
+                priceTotal = priceTotal;
+            }
+            return priceTotal.toFixed(2);
         }
 
         addSugar.addEventListener('click', () => {
-            addAdditives(addSugar, addCinnamon, addSyrup);
-            if (addSugar.classList.contains('active')) {
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[0].price).toFixed(2)}`;
-            } else {
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price - +product.additives[0].price).toFixed(2)}`;
-            }
-            
+            addSugar.classList.toggle('active');
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSugar, priceCinnamon, priceSyrup)}`;
         })
+
         addCinnamon.addEventListener('click', () => {
-            addAdditives(addCinnamon, addSugar, addSyrup);
-            totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[1].price).toFixed(2)}`;
+            addCinnamon.classList.toggle('active');
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceCinnamon, priceSugar, priceSyrup)}`;
         })
+
         addSyrup.addEventListener('click', () => {
-            addAdditives(addSyrup, addSugar, addCinnamon);
-            totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[2].price).toFixed(2)}`;
+            addSyrup.classList.toggle('active');
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceS, priceSyrup, priceSugar, priceCinnamon)}`;
         })
+
         // size M
         sizeM.addEventListener('click', () => {
             switchSizes(sizeM, sizeS, sizeL);
             totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price).toFixed(2)}`;
-
-            addSugar.addEventListener('click', () => {
-                addAdditives(addSugar, addCinnamon, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price + +product.additives[0].price).toFixed(2)}`;
-            })
-            addCinnamon.addEventListener('click', () => {
-                addAdditives(addCinnamon, addSugar, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price + +product.additives[1].price).toFixed(2)}`;
-            })
-            addSyrup.addEventListener('click', () => {
-                addAdditives(addSyrup, addSugar, addCinnamon);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.m.price + +product.additives[2].price).toFixed(2)}`;
-            })
+            /*addSugar.addEventListener('click', () => {
+            addSugar.classList.toggle('active');
+            totalPrice.innerHTML = `$${calcPrice(priceProduct, priceM, priceSugar, priceCinnamon, priceSyrup)}`;
+            })*/
         })
         //size L
         sizeL.addEventListener('click', () => {
             switchSizes(sizeL, sizeS, sizeM);
             totalPrice.innerHTML = `$${(+product.price + +product.sizes.l.price).toFixed(2)}`;
-
-            addSugar.addEventListener('click', () => {
-                addAdditives(addSugar, addCinnamon, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.l.price + +product.additives[0].price).toFixed(2)}`;
-            })
-            addCinnamon.addEventListener('click', () => {
-                addAdditives(addCinnamon, addSugar, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.l.price + +product.additives[1].price).toFixed(2)}`;
-            })
-            addSyrup.addEventListener('click', () => {
-                addAdditives(addSyrup, addSugar, addCinnamon);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.l.price + +product.additives[2].price).toFixed(2)}`;
-            })
         })
         //size S
         sizeS.addEventListener('click', () => {
             switchSizes(sizeS, sizeL, sizeM);
             totalPrice.innerHTML = `$${product.price}`;
-
-            addSugar.addEventListener('click', () => {
-                addAdditives(addSugar, addCinnamon, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[0].price).toFixed(2)}`;
-            })
-            addCinnamon.addEventListener('click', () => {
-                addAdditives(addCinnamon, addSugar, addSyrup);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[1].price).toFixed(2)}`;
-            })
-            addSyrup.addEventListener('click', () => {
-                addAdditives(addSyrup, addSugar, addCinnamon);
-                totalPrice.innerHTML = `$${(+product.price + +product.sizes.s.price + +product.additives[2].price).toFixed(2)}`;
-            })
         })
 
 
@@ -325,11 +319,13 @@ menuTea.addEventListener('click', () => {
 menuDessert.addEventListener('click', () => {
     switchCategory(menuDessert, menuCoffee, menuTea);
     loadProducts();
+    moreBtn.classList.remove('hide');
 })
 
 menuCoffee.addEventListener('click', () => {
     switchCategory(menuCoffee, menuDessert, menuTea);
     loadProducts();
+    moreBtn.classList.remove('hide');
 })
 
 
@@ -356,3 +352,16 @@ document.addEventListener('keydown', (e) => {
         popup.classList.add('hidden');
     }
 })
+
+
+//more button (pagination) for < 768px
+const moreBtn = document.querySelector('.menu-more-btn');
+const allCards = document.querySelectorAll('.menu-cards--box');
+
+moreBtn.addEventListener('click', () => {
+    const allCards = document.querySelectorAll('.menu-cards--box');
+    allCards.forEach(card => {
+            card.classList.add('show');
+    });
+    moreBtn.classList.add('hide');
+});
